@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Information System</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+    .hidden {
+      display: none;
+    }
+
+    .role-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .toggle-btn {
+      width: 35px;
+      height: 35px;
+      background-color: #007BFF;
+      border: none;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s ease;
+    }
+
+    .toggle-btn:hover {
+      background-color: #0056b3;
+    }
+
+    .toggle-btn svg {
+      fill: white;
+      width: 18px;
+      height: 18px;
+    }
+
+    .card {
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+  <div class="landing-container">
+    <div class="card">
+      <h1>Welcome to <span class="highlight">Student Information System</span></h1>
+      <p>Please select your role to continue:</p>
+
+      <div class="role-buttons">
+        <!-- Student Section -->
+        <div class="role" id="student-section">
+          <div class="role-header" style="display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap; text-align: center;">
+            <h2 style="margin: 0;">🎓 Student</h2>
+            <button class="toggle-btn" onclick="toggleRole()" title="Switch Role">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M17.65 6.35A7.95 7.95 0 0 0 12 4V1L7 6l5 5V7c2.76 0 5 2.24 5 5 0 1.64-.8 3.09-2.05 4.05l1.45 1.45A7.95 7.95 0 0 0 20 12c0-2.21-.9-4.21-2.35-5.65zM6.35 17.65A7.95 7.95 0 0 0 12 20v3l5-5-5-5v3c-2.76 0-5-2.24-5-5 0-1.64.8-3.09 2.05-4.05L7.6 6.6A7.95 7.95 0 0 0 4 12c0 2.21.9 4.21 2.35 5.65z"/>
+              </svg>
+            </button>
+          </div>
+          <a href="/student_login" class="btn primary">Login</a>
+          <a href="/register_student" class="btn secondary">Register</a>
+        </div>
+      
+        <!-- Faculty Section -->
+        <div class="role hidden" id="faculty-section">
+          <div class="role-header" style="display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap; text-align: center;">
+            <h2 style="margin: 0;">📚 Faculty</h2>
+            <button class="toggle-btn" onclick="toggleRole()" title="Switch Role">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M17.65 6.35A7.95 7.95 0 0 0 12 4V1L7 6l5 5V7c2.76 0 5 2.24 5 5 0 1.64-.8 3.09-2.05 4.05l1.45 1.45A7.95 7.95 0 0 0 20 12c0-2.21-.9-4.21-2.35-5.65zM6.35 17.65A7.95 7.95 0 0 0 12 20v3l5-5-5-5v3c-2.76 0-5-2.24-5-5 0-1.64.8-3.09 2.05-4.05L7.6 6.6A7.95 7.95 0 0 0 4 12c0 2.21.9 4.21 2.35 5.65z"/>
+              </svg>
+            </button>
+          </div>
+          <a href="/faculty_login" class="btn primary">Login</a>
+          <a href="/register_faculty" class="btn secondary">Register</a>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  <script>
+    let isStudent = true;
+
+    function toggleRole() {
+      isStudent = !isStudent;
+      document.getElementById('student-section').classList.toggle('hidden', !isStudent);
+      document.getElementById('faculty-section').classList.toggle('hidden', isStudent);
+    }
+  </script>
+</body>
+</html>

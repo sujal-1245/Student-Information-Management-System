@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <title>Document</title>
+</head>
+<body>
+  <!-- Sidebar -->
+<aside class="sidebar">
+  <h2 class="logo">DD National Iskool</h2>
+  <nav>
+    <a href="/student_dashboard" class="active"><i class="fa fa-home"></i> Dashboard</a>
+    <a href="/profile_student"><i class="fa fa-user"></i> Profile</a>
+    <a href="/register_courses"><i class="fa fa-book"></i> Courses</a>
+    <a href="/grades"><i class="fa fa-chart-bar"></i> Grades</a>
+    <a href="/attendance"><i class="fa fa-calendar-check"></i> Attendance</a>
+    <a href="/notices"><i class="fa fa-bell"></i> Notices</a>
+    <a href="/feedback"><i class="fa fa-comment-dots"></i> Feedback</a>
+    <a href="/support"><i class="fa fa-life-ring"></i> Support</a>
+    <a href="/student_reports"><i class="fa fa-file-alt"></i> Reports</a>
+    <a href="/logout"><i class="fa fa-person-shelter"></i> Logout</a>
+
+  </nav>
+</aside>
+
+<main class="main">
+  <div class="form-card banner-card" style="flex-basis: 100%; display: flex; align-items: center; gap: 20px;">
+    <img src="https://investin.org/cdn/shop/articles/How_to_Motivate_Yourself_to_Study.jpg?v=1640183354" alt="Course Motivation" style="height: 120px; border-radius: 12px; object-fit: cover;">
+    <div>
+      <h2 style="margin: 0;">Welcome to Course Registration</h2>
+      <p style="margin: 5px 0;">Plan your semester, register for the right subjects, and stay ahead!</p>
+    </div>
+  </div>
+  
+  <div style="margin: 10px;" class="form-card">
+    <h3><i class="fa fa-star"></i> Recommended Courses</h3>
+    <ul class="course-list">
+      <li><strong>AI Fundamentals</strong> – Dr. Sharma <span class="status-tag">New</span></li>
+      <li><strong>Data Structures</strong> – Prof. Rao <span class="status-tag">Popular</span></li>
+      <li><strong>Web Dev 101</strong> – Ms. Priya <span class="status-tag">Trending</span></li>
+    </ul>
+  </div>
+    
+  <div class="form-section">
+    <!-- Available Courses -->
+    <div class="form-card full-width">
+      <h2><i class="fa fa-book-open"></i>Courses</h2>
+      <ul class="course-list">
+        {% for course in courses %}
+          <li>
+            <strong>{{ course.title }}</strong>
+            {% if course.faculty_name %}
+              - Taught by {{ course.faculty_name }}
+            {% else %}
+              - Faculty not assigned
+            {% endif %}
+          </li>
+        {% else %}
+          <li>No courses found.</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  
+
+</body>
+</html>

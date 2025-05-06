@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Upload Grades</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <div class="dashboard">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h2 class="logo">DD National Iskool</h2>
+      <nav>
+        <a href="/faculty_dashboard" class="active"><i class="fa fa-home"></i> Dashboard</a>
+        <a href="/faculty_courses"><i class="fa fa-book"></i> Courses</a>
+        <a href="/upload_grades"><i class="fa fa-upload"></i> Upload Grades</a>
+        <a href="/manage_attendance"><i class="fa fa-calendar-check"></i> Attendance</a>
+        <a href="/faculty_notices"><i class="fa fa-bell"></i> Notices</a>
+        <a href="/faculty_support"><i class="fa fa-life-ring"></i> Support</a>
+        <a href="/student_reports"><i class="fa fa-file-alt"></i> Student Reports</a>
+        <a href="/logout"><i class="fa fa-person-shelter"></i> Logout</a>
+      </nav>
+    </aside>
+    <main class="main">
+      <header class="main-header"><h1>Upload Grades</h1></header>
+      <section class="content-section">
+        <table class="data-table">
+          <thead><tr><th>Course</th><th>Grade</th></tr></thead>
+          <tbody>
+            {% for grade in grades %}
+            <tr><td>{{ grade.course_name }}</td><td>{{ grade.grade }}</td></tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

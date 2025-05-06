@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+  <div class="dashboard">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h2 class="logo">DD National Iskool</h2>
+      <nav>
+        <a href="/student_dashboard" class="active"><i class="fa fa-home"></i> Dashboard</a>
+        <a href="/profile_student"><i class="fa fa-user"></i> Profile</a>
+        <a href="/register_courses"><i class="fa fa-book"></i> Courses</a>
+        <a href="/grades"><i class="fa fa-chart-bar"></i> Grades</a>
+        <a href="/attendance"><i class="fa fa-calendar-check"></i> Attendance</a>
+        <a href="/notices"><i class="fa fa-bell"></i> Notices</a>
+        <a href="/feedback"><i class="fa fa-comment-dots"></i> Feedback</a>
+        <a href="/support"><i class="fa fa-life-ring"></i> Support</a>
+        <a href="/student_reports"><i class="fa fa-file-alt"></i> Reports</a>
+        <a href="/logout"><i class="fa fa-person-shelter"></i> Logout</a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main">
+      <header class="main-header">
+        <h1>Welcome, {{ session.user.name }}</h1>
+        <p>ID: {{ session.user.id }}</p>
+      </header>
+
+      <section class="widgets">
+        <div style="background-color: lightpink;" class="widget attendance">
+          <h3>Attendance</h3>
+          <canvas id="attendanceChart"></canvas>
+        </div>
+        <div style="background-color: lightgreen ; align-items: center; flex: content;" class="widget fees">
+          <h3>Fee Status</h3>
+          <p class="status success">No Dues</p>
+        </div>
+        <div style="background-color: lightgoldenrodyellow;" class="widget banner">
+          <img src="{{ url_for('static', filename='dna_banner.jpg') }}" alt="Career Confidence" />
+        </div>
+        <div style="background-color: lightsteelblue;" class="widget event">
+          <h3>Upcoming Events</h3>
+          <p>Webinar on AI - May 5, 2025</p>
+        </div>
+      </section>
+
+      <section class="dashboard-sections">
+        <!-- My Classes -->
+        <div class="section-card">
+          <h2>My Classes</h2>
+          <div class="class-timetable">
+            <div class="class-slot">
+              <strong>9:00 AM - 10:00 AM</strong><br>
+              Data Structures<br>
+              Prof. A. Sharma<br>
+              <i class="fa fa-location-dot"></i> Room 101
+            </div>
+            <div class="class-slot">
+              <strong>10:15 AM - 11:15 AM</strong><br>
+              Operating Systems<br>
+              Dr. Meera Nair<br>
+              <i class="fa fa-location-dot"></i> Room 102
+            </div>
+            <div class="class-slot">
+              <strong>11:30 AM - 12:30 PM</strong><br>
+              DBMS<br>
+              Mr. R. Singh<br>
+              <i class="fa fa-location-dot"></i> Lab 1
+            </div>
+            <div class="class-slot">
+              <strong>2:00 PM - 3:00 PM</strong><br>
+              Web Technologies<br>
+              Ms. T. Das<br>
+              <i class="fa fa-location-dot"></i> Room 103
+            </div>
+          </div>
+        </div>
+      
+<!-- Academic Progress -->
+<div class="section-card">
+  <h2>Academic Progress</h2>
+  {% for course in courses_progress %}
+    <div class="progress-item">
+      <label>{{ course.title }}</label>
+      <progress value="{{ course.percentage }}" max="100"></progress>
+      <span>{{ course.percentage }}%</span>
+    </div>
+  {% else %}
+    <p>No course progress available.</p>
+  {% endfor %}
+</div>
+
+      
+      <!-- Place this below your last <section> (before </main>) -->
+<section class="quick-stats">
+  <div class="stat-card">Total Credits: <strong>24</strong></div>
+  <div class="stat-card">Registered Courses: <strong>5</strong></div>
+  <div class="stat-card">CGPA: <strong>8.6</strong></div>
+</section>
+
+<section style="width: 100%;" class="announcements">
+  <h2>Announcements</h2>
+  <marquee behavior="scroll" direction="left">
+    Fee payment deadline extended to May 10 | Sports Meet registration open till May 8 | Check your midterm grades now!
+  </marquee>
+  <div class="footer">
+    <footer class="footer">
+      <p>&copy; 2025 DD National Iskool. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="/about">About</a> | 
+        <a href="/terms">Terms</a> | 
+        <a href="/privacy">Privacy</a>
+      </div>
+    </footer>
+  </div>
+</section>
+
+
+
+
+    </main>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    const ctx = document.getElementById('attendanceChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+        labels: ['Above 85%', '75%-85%', 'Below 75%'],
+        datasets: [{
+          label: 'Attendance',
+          data: [9, 2, 2],
+          backgroundColor: ['#00c897', '#ffce56', '#ff6384'],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        plugins: {
+          legend: { position: 'bottom' }
+        }
+      }
+    });
+  </script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Profile</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    .profile-card {
+      display: flex;
+      gap: 2rem;
+      padding: 3rem;
+      margin: 2rem;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #fff;
+    }
+
+    .profile-photo img {
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid #fff;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+
+    .profile-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .profile-info h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .profile-info p {
+      margin: 0.4rem 0;
+      font-size: 1.05rem;
+    }
+
+    .main-header {
+      padding: 2rem;
+      color: #fff;
+    }
+
+    body {
+      background: linear-gradient(to right, #141e30, #243b55);
+    }
+
+    .sidebar {
+      background: #0f172a;
+    }
+
+    .sidebar nav a.active {
+      background-color: rgba(255, 255, 255, 0.15);
+      border-left: 4px solid #38bdf8;
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h2 class="logo">MediVerse</h2>
+      <nav>
+        <a href="/student_dashboard"><i class="fa fa-home"></i> Dashboard</a>
+        <a href="/profile_student" class="active"><i class="fa fa-user"></i> Profile</a>
+        <a href="/register_courses"><i class="fa fa-book"></i> Course Registration</a>
+        <a href="/grades"><i class="fa fa-chart-bar"></i> Grades</a>
+        <a href="/attendance"><i class="fa fa-calendar-check"></i> Attendance</a>
+        <a href="/notices"><i class="fa fa-bell"></i> Notices</a>
+        <a href="/feedback"><i class="fa fa-comment-dots"></i> Feedback</a>
+        <a href="/support"><i class="fa fa-life-ring"></i> Support</a>
+        <a href="/student_reports"><i class="fa fa-file-alt"></i> Reports</a>
+        <a href="/logout"><i class="fa fa-person-shelter"></i> Logout</a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main">
+      <header class="main-header">
+        <h1>Student Profile</h1>
+      </header>
+
+      <section class="profile-card">
+        <div class="profile-photo">
+          <img src="{{ url_for('static', filename='profile_photos/' + session['user'].get('photo', 'default.jpg')) }}" alt="Profile Photo">
+        </div>
+        <div class="profile-info">
+          <h2>{{ session['user']['name'] }}</h2>
+          <p><strong>Student ID:</strong> {{ session['user']['id'] }}</p>
+          <p><strong>Email:</strong> {{ session['user']['email'] }}</p>
+          <p><strong>Program:</strong> {{ session['user']['program'] }}</p>
+          <p><strong>Year:</strong> {{ session['user']['year'] }}</p>
+          <p><strong>Contact:</strong> {{ session['user']['contact'] }}</p>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

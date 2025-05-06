@@ -1,0 +1,391 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f8f9fc;
+    display: flex;
+  }
+  
+  .dashboard {
+    display: flex;
+    width: 100%;
+  }
+  
+  .sidebar {
+    width: 250px;
+    background-color: #001f3f;
+    color: white;
+    padding: 20px;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+  }
+  
+  .sidebar .logo {
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 1.5em;
+  }
+  
+  .sidebar nav a {
+    display: block;
+    color: white;
+    padding: 10px;
+    margin: 5px 0;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  
+  .sidebar nav a.active,
+  .sidebar nav a:hover {
+    background-color: #007bff;
+  }
+  
+  .main {
+    flex-grow: 1;
+    padding: 20px;
+  }
+  
+  .main-header h1 {
+    margin: 0;
+    font-size: 24px;
+  }
+  
+  .widgets {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .widget {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.1);
+    flex: 1;
+    min-width: 250px;
+  }
+  
+  .widget img {
+    width: 100%;
+    border-radius: 8px;
+  }
+  
+  .status.success {
+    color: green;
+    font-weight: bold;
+  }
+  
+  .my-classes, .my-attendance {
+    margin-top: 30px;
+  }
+  
+  .class-item {
+    background: white;
+    margin: 10px 0;
+    padding: 15px;
+    border-left: 5px solid #007bff;
+    border-radius: 8px;
+  }
+  
+  .my-attendance ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .my-attendance li {
+    background: white;
+    margin: 8px 0;
+    padding: 12px;
+    border-left: 5px solid #007bff;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .percent {
+    font-weight: bold;
+  }
+  
+  .percent.low {
+    color: red;
+  }
+  .percent.medium {
+    color: orange;
+  }
+  .percent.high {
+    color: green;
+  }
+  
+  .profile-card {
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    display: flex;
+    padding: 20px;
+    margin-top: 20px;
+  }
+  
+  .profile-photo img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+  }
+  
+  .profile-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .course-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .course-card {
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    padding: 20px;
+  }
+  
+  .course-actions {
+    margin-top: 10px;
+  }
+  
+  .course-actions .btn {
+    display: inline-block;
+    margin-right: 10px;
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+  }
+  
+  .course-actions .btn:hover {
+    background-color: #0056b3;
+  }
+  
+  .quick-stats {
+    display: flex;
+    gap: 20px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+  }
+  
+  .stat-card {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    min-width: 200px;
+    font-size: 1.1em;
+  }
+  
+  .announcements {
+    margin-top: 40px;
+    background: #f0f4ff;
+    padding: 15px 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  }
+  
+  .announcements h2 {
+    margin-top: 0;
+    color: #001f3f;
+  }
+  
+  .footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #001f3f;
+    color: white;
+    margin-top: 50px;
+  }
+  
+  .footer-links a {
+    color: #ccc;
+    margin: 0 8px;
+    text-decoration: none;
+  }
+  
+  .footer-links a:hover {
+    color: white;
+  }
+  
+  .dashboard-sections {
+    display: flex;
+    gap: 20px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+  }
+  
+  .section-card {
+    flex: 1;
+    min-width: 300px;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.1);
+  }
+  
+  .class-timetable {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .class-slot {
+    background: #f1f5ff;
+    border-left: 5px solid #007bff;
+    padding: 15px;
+    border-radius: 8px;
+  }
+  
+/* Reset browser default progress styles */
+progress {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #e6e6e6;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
+}
+
+/* WebKit (Chrome, Safari) */
+progress::-webkit-progress-bar {
+  background-color: #e6e6e6;
+  border-radius: 10px;
+}
+
+progress::-webkit-progress-value {
+  background-image: linear-gradient(to right, #007bff, #00c6ff);
+  border-radius: 10px;
+  transition: width 0.4s ease;
+}
+
+/* Firefox */
+progress::-moz-progress-bar {
+  background-image: linear-gradient(to right, #007bff, #00c6ff);
+  border-radius: 10px;
+  transition: width 0.4s ease;
+}
+
+progress {
+  animation: fillUp 1s ease-in-out forwards;
+}
+
+@keyframes fillUp {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+.form-section {
+  display: flex;
+  gap: 20px;
+  margin: 30px;
+  flex-wrap: wrap;
+}
+
+.form-card {
+  flex: 1;
+  min-width: 300px;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.1);
+}
+
+.form-card h2, .form-card h3 {
+  margin-bottom: 15px;
+  color: #007bff;
+}
+
+.form-card form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-card label {
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.form-card select {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-bottom: 15px;
+}
+
+.form-card button {
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.form-card button:hover {
+  background-color: #0056b3;
+}
+
+.course-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.course-list li {
+  background: #f1f5ff;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-left: 5px solid #007bff;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.status-tag.enrolled {
+  background-color: #00c897;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 5px;
+  font-size: 0.8em;
+}
+.status-tag {
+  background-color: #ffce56;
+  color: #000;
+  padding: 4px 8px;
+  border-radius: 5px;
+  font-size: 0.75em;
+}
+.full-width {
+  width: 100%;
+}
+
+.role-header {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center items horizontally */
+  gap: 1rem; /* Maintain spacing between text and button */
+  flex-wrap: wrap;
+  text-align: center;
+}

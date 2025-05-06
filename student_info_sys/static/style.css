@@ -1,0 +1,167 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #007BFF, #00c6ff);
+    color: #333;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.landing-container {
+    width: 90%;
+    max-width: 800px;
+    padding: 30px;
+}
+
+.card {
+    background-color: white;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+.card h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.highlight {
+    color: #007BFF;
+}
+
+.card p {
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.role-buttons {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.role {
+    flex: 1;
+    min-width: 180px;
+}
+
+.role h2 {
+    margin-bottom: 15px;
+    color: #007BFF;
+}
+
+.btn {
+    display: block;
+    text-decoration: none;
+    margin: 10px auto;
+    padding: 12px 20px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 180px;
+    font-weight: bold;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.btn.primary {
+    background-color: #007BFF;
+    color: white;
+}
+
+.btn.primary:hover {
+    background-color: #0056b3;
+}
+
+.btn.secondary {
+    background-color: white;
+    color: #007BFF;
+    border: 2px solid #007BFF;
+}
+
+.btn.secondary:hover {
+    background-color: #007BFF;
+    color: white;
+}
+
+body {
+    background: linear-gradient(to right, #6dd5ed, #2193b0);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.glass-container {
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    padding: 40px;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    color: white;
+}
+
+.glass-container h2 {
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    color: #fff;
+}
+
+.glass-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.glass-container label {
+    margin: 10px 0 5px;
+    text-align: left;
+    font-weight: 500;
+}
+
+.glass-container input {
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    font-size: 1rem;
+}
+
+.glass-container button {
+    padding: 12px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.glass-container button:hover {
+    background-color: #0056b3;
+}
+
+.role-header {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center items horizontally */
+    gap: 1rem; /* Maintain spacing between text and button */
+    flex-wrap: wrap;
+    text-align: center;
+  }
+  

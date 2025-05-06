@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Faculty Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+  <div class="dashboard">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h2 class="logo">DD National Iskool</h2>
+      <nav>
+        <a href="/faculty_dashboard" class="active"><i class="fa fa-home"></i> Dashboard</a>
+        <a href="/faculty_courses"><i class="fa fa-book"></i> Courses</a>
+        <a href="/upload_grades"><i class="fa fa-upload"></i> Upload Grades</a>
+        <a href="/manage_attendance"><i class="fa fa-calendar-check"></i> Attendance</a>
+        <a href="/faculty_notices"><i class="fa fa-bell"></i> Notices</a>
+        <a href="/faculty_support"><i class="fa fa-life-ring"></i> Support</a>
+        <a href="/student_reports"><i class="fa fa-file-alt"></i> Student Reports</a>
+        <a href="/logout"><i class="fa fa-person-shelter"></i> Logout</a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main">
+      <header class="main-header">
+        <h1>Welcome, Prof. {{ session.user.name }}</h1>
+        <p>ID: {{ session.user.id }}</p>
+      </header>
+
+      <section class="widgets">
+        <div class="widget course-load">
+          <h3>Total Courses</h3>
+          <p class="status">{{ total_courses }}</p>
+        </div>
+        
+        <div class="widget faculty-banner">
+          <img src="{{ url_for('static', filename='faculty_banner.jpg') }}" alt="Inspire & Lead" />
+        </div>
+        <div class="widget announcement">
+          <h3>Upcoming Deadlines</h3>
+          <p>Grade Submission - May 10, 2025</p>
+        </div>
+      </section>
+
+      <section class="my-classes">
+        <h2>My Courses</h2>
+        <div class="class-list">
+          {% for course in faculty_courses %}
+            <div class="class-item">
+              <strong>{{ course.course_code }}: {{ course.course_name }}</strong><br>
+              {{ course.day }} | {{ course.time }}<br>
+              <i class="fa fa-location-dot"></i> {{ course.location }}
+              <div><i class="fa fa-users"></i> Enrolled: {{ course.enrolled_students }}</div>
+            </div>
+          {% endfor %}
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
